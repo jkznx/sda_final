@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carts",
+  "info": {
+    "singularName": "cart",
+    "pluralName": "carts",
+    "displayName": "Cart"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "register": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::register.register",
+      "inversedBy": "cart"
+    },
+    "lotto_6s": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::lotto6.lotto6",
+      "inversedBy": "carts"
+    }
+  }
+}

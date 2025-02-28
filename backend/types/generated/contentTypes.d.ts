@@ -369,6 +369,32 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCartCart extends Struct.CollectionTypeSchema {
+  collectionName: 'carts';
+  info: {
+    displayName: 'Cart';
+    pluralName: 'carts';
+    singularName: 'cart';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::cart.cart'> &
+      Schema.Attribute.Private;
+    lotto_6s: Schema.Attribute.Relation<'manyToMany', 'api::lotto6.lotto6'>;
+    publishedAt: Schema.Attribute.DateTime;
+    register: Schema.Attribute.Relation<'oneToOne', 'api::register.register'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
   collectionName: 'lotto6s';
   info: {
@@ -380,6 +406,7 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    carts: Schema.Attribute.Relation<'manyToMany', 'api::cart.cart'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -409,6 +436,7 @@ export interface ApiRegisterRegister extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    cart: Schema.Attribute.Relation<'oneToOne', 'api::cart.cart'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -938,6 +966,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::cart.cart': ApiCartCart;
       'api::lotto6.lotto6': ApiLotto6Lotto6;
       'api::register.register': ApiRegisterRegister;
       'plugin::content-releases.release': PluginContentReleasesRelease;

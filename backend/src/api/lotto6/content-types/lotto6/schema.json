@@ -15,6 +15,12 @@
     },
     "date": {
       "type": "datetime"
+    },
+    "carts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::cart.cart",
+      "mappedBy": "lotto_6s"
     }
   }
 }

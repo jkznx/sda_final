@@ -21,6 +21,12 @@
     },
     "password": {
       "type": "password"
+    },
+    "cart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cart.cart",
+      "mappedBy": "register"
     }
   }
 }
