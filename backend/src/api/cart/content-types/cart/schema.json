@@ -10,12 +10,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "register": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::register.register",
-      "inversedBy": "cart"
-    },
     "lotto_6s": {
       "type": "relation",
       "relation": "manyToMany",

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "register",
     "pluralName": "registers",
-    "displayName": "Register"
+    "displayName": "Register",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,11 +23,11 @@
     "password": {
       "type": "password"
     },
-    "cart": {
+    "Cart": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::cart.cart",
-      "mappedBy": "register"
+      "relation": "manyToMany",
+      "target": "api::lotto6.lotto6",
+      "inversedBy": "registers"
     }
   }
 }

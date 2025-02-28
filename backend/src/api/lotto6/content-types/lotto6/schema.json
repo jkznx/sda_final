@@ -21,6 +21,12 @@
       "relation": "manyToMany",
       "target": "api::cart.cart",
       "mappedBy": "lotto_6s"
+    },
+    "registers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::register.register",
+      "mappedBy": "Cart"
     }
   }
 }

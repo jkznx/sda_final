@@ -388,7 +388,6 @@ export interface ApiCartCart extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     lotto_6s: Schema.Attribute.Relation<'manyToMany', 'api::lotto6.lotto6'>;
     publishedAt: Schema.Attribute.DateTime;
-    register: Schema.Attribute.Relation<'oneToOne', 'api::register.register'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -419,6 +418,10 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     number: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+    registers: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::register.register'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -428,6 +431,7 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
 export interface ApiRegisterRegister extends Struct.CollectionTypeSchema {
   collectionName: 'registers';
   info: {
+    description: '';
     displayName: 'Register';
     pluralName: 'registers';
     singularName: 'register';
@@ -436,7 +440,7 @@ export interface ApiRegisterRegister extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    cart: Schema.Attribute.Relation<'oneToOne', 'api::cart.cart'>;
+    Cart: Schema.Attribute.Relation<'manyToMany', 'api::lotto6.lotto6'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
