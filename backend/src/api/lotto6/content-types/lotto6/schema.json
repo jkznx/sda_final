@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lotto6s",
+  "info": {
+    "singularName": "lotto6",
+    "pluralName": "lotto6s",
+    "displayName": "lotto6"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "lottonumber": {
+      "type": "integer"
+    }
+  }
+}
