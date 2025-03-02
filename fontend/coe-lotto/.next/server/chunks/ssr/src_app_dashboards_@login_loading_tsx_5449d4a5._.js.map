@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/ACER/Desktop/Projects/sda_final/fontend/coe-lotto/src/app/dashboards/%40login/loading.tsx"],"sourcesContent":["export default function Loading() {\r\n  return (\r\n    <div>\r\n      <h1>Loading...</h1>\r\n    </div>\r\n  );\r\n}"],"names":[],"mappings":";;;;;AAAe,SAAS;IACtB,qBACE,8OAAC;kBACC,cAAA,8OAAC;sBAAG;;;;;;;;;;;AAGV","debugId":null}},
-    {"offset": {"line": 27, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}
