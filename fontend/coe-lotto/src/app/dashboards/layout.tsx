@@ -1,6 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
+import LottoPage from './lotto/page'
 
 const user = {
   name: 'User Name',
@@ -170,6 +170,9 @@ export default function DashboardLayout() {
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
             <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
             <p className="text-sm text-gray-500">Dashboard will be displayed here.</p>
+            <div>
+                <LottoPage />
+            </div>
             </div>
         </main>
       </div>
