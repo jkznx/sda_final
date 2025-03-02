@@ -10,7 +10,8 @@ const user = {
 }
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
-  { name: 'Users', href: '/dashboards/users', current: false },
+  { name: 'Check', href: '/dashboards/check', current: false },
+  { name: 'Buys', href: '/dashboards/buys', current: false },
   { name: 'Carts', href: '/dashboards/carts', current: false },
 ]
 const userNavigation = [
@@ -38,9 +39,9 @@ export default function DashboardLayout() {
       <div>
         <Disclosure as="nav" className="bg-white-400 shadow">
           <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-16 items-center justify-between">
-              <div className="flex items-center">
-                <div className="shrink-0 flex items-center">
+            <div className="flex h-16 items-center justify-between ">
+              <div className="flex items-center ">
+                <div className="shrink-0 mt-4">
                   <img
                     alt="Logo"
                     src="/coe-lotto.png"
