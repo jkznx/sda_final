@@ -4,8 +4,7 @@
   "info": {
     "singularName": "lotto6",
     "pluralName": "lotto6s",
-    "displayName": "lotto6",
-    "description": ""
+    "displayName": "lotto6"
   },
   "options": {
     "draftAndPublish": true
@@ -13,12 +12,6 @@
   "attributes": {
     "lottonumber": {
       "type": "integer"
-    },
-    "register": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::register.register",
-      "inversedBy": "lotto_6_s"
     }
   }
 }
