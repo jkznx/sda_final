@@ -11,23 +11,43 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "firstname": {
+    "Name": {
       "type": "string"
     },
-    "lastname": {
+    "Lastname": {
       "type": "string"
     },
-    "email": {
+    "gmail": {
       "type": "email"
+    },
+    "lotto_6_s": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lotto6.lotto6",
+      "mappedBy": "register"
+    },
+    "lotto_4s": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lotto4.lotto4",
+      "mappedBy": "register"
+    },
+    "profile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Date": {
+      "type": "datetime"
     },
     "password": {
       "type": "password"
-    },
-    "Cart": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::lotto6.lotto6",
-      "inversedBy": "registers"
     }
   }
 }
