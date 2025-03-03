@@ -389,6 +389,7 @@ export interface ApiLotto4Lotto4 extends Struct.CollectionTypeSchema {
       'api::lotto4.lotto4'
     > &
       Schema.Attribute.Private;
+    lotto6num: Schema.Attribute.Relation<'oneToOne', 'api::lotto6.lotto6'>;
     lottonumber: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     register: Schema.Attribute.Relation<'manyToOne', 'api::register.register'>;
@@ -419,7 +420,8 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
       'api::lotto6.lotto6'
     > &
       Schema.Attribute.Private;
-    lottonumber: Schema.Attribute.Integer;
+    lotto4num: Schema.Attribute.Relation<'oneToOne', 'api::lotto4.lotto4'>;
+    lottonumber: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     register: Schema.Attribute.Relation<'manyToOne', 'api::register.register'>;
     updatedAt: Schema.Attribute.DateTime;

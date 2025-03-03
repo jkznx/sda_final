@@ -18,6 +18,12 @@
       "relation": "manyToOne",
       "target": "api::register.register",
       "inversedBy": "lotto_4s"
+    },
+    "lotto6num": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lotto6.lotto6",
+      "mappedBy": "lotto4num"
     }
   }
 }
