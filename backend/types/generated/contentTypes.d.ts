@@ -389,12 +389,10 @@ export interface ApiLotto4Lotto4 extends Struct.CollectionTypeSchema {
       'api::lotto4.lotto4'
     > &
       Schema.Attribute.Private;
+    lotto6num: Schema.Attribute.Relation<'oneToOne', 'api::lotto6.lotto6'>;
     lottonumber: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
-    registers: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::register.register'
-    >;
+    register: Schema.Attribute.Relation<'manyToOne', 'api::register.register'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -423,12 +421,10 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
       'api::lotto6.lotto6'
     > &
       Schema.Attribute.Private;
-    lottonumber: Schema.Attribute.Integer;
+    lotto4num: Schema.Attribute.Relation<'oneToOne', 'api::lotto4.lotto4'>;
+    lottonumber: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
-    registers: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::register.register'
-    >;
+    register: Schema.Attribute.Relation<'manyToOne', 'api::register.register'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -459,8 +455,8 @@ export interface ApiRegisterRegister extends Struct.CollectionTypeSchema {
       'api::register.register'
     > &
       Schema.Attribute.Private;
-    lotto_4_s: Schema.Attribute.Relation<'manyToMany', 'api::lotto4.lotto4'>;
-    lotto_6_s: Schema.Attribute.Relation<'manyToMany', 'api::lotto6.lotto6'>;
+    lotto_4s: Schema.Attribute.Relation<'oneToMany', 'api::lotto4.lotto4'>;
+    lotto_6_s: Schema.Attribute.Relation<'oneToMany', 'api::lotto6.lotto6'>;
     Name: Schema.Attribute.String;
     password: Schema.Attribute.Password;
     profile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;

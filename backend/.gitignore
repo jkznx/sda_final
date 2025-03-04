@@ -10,11 +10,13 @@ Icon
 .Trashes
 ._*
 
+
 ############################
 # Linux
 ############################
 
 *~
+
 
 ############################
 # Windows
@@ -29,20 +31,28 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+
 ############################
 # Packages
 ############################
 
 *.7z
+*.csv
+*.dat
 *.dmg
 *.gz
 *.iso
+*.jar
 *.rar
 *.tar
 *.zip
 *.com
+*.class
+*.dll
 *.exe
+*.o
 *.seed
+*.so
 *.swo
 *.swp
 *.swn
@@ -50,14 +60,14 @@ $RECYCLE.BIN/
 *.out
 *.pid
 
+
 ############################
 # Logs and databases
 ############################
 
-*.log
-logs/
-*.sql
-*.dump
+.tmp
+
+
 
 ############################
 # Misc.
@@ -79,6 +89,7 @@ public/uploads/*
 lib-cov
 lcov.info
 pids
+logs
 results
 node_modules
 .node_history
@@ -113,21 +124,4 @@ exports
 dist
 build
 .strapi-updater.json
-.strapi-cloud.json
-
-############################
-# Environment and sensitive data
-############################
-
-# Ignore .env file
-
-
-# Track .env.example
-
-# Ignore sensitive keys
-*.key
-*.pem
-
-# Track non-sensitive config files
-!config/
-!config/app-config.json
+.strapi-cloud.json".env" 

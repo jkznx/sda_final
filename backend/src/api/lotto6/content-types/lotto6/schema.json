@@ -12,15 +12,20 @@
   },
   "attributes": {
     "lottonumber": {
-      "type": "integer"
+      "type": "biginteger"
     },
-    "registers": {
+    "register": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::register.register",
       "inversedBy": "lotto_6_s"
-    }
-    ,
+    },
+    "lotto4num": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lotto4.lotto4",
+      "inversedBy": "lotto6num"
+    },
     "count": {
       "type": "integer",
       "default": 0

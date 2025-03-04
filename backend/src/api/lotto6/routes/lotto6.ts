@@ -1,22 +1,5 @@
-module.exports = {
-  routes: [
-    {
-      method: 'GET',
-      path: '/lotto6s',
-      handler: 'lotto6.find', // หรือ handler อื่นที่คุณต้องการ
-      config: {
-        policies: [],
-        auth: false,
-      },
-    },
-    {
-      method: 'GET',
-      path: '/lotto6s/best-seller',
-      handler: 'lotto6.findMostPushed',
-      config: {
-        policies: [],
-        auth: false,
-      },
-    },
-  ],
-};
+// src/api/lotto6/routes/lotto6.ts
+
+import { factories } from '@strapi/strapi';
+
+export default factories.createCoreRouter('api::lotto6.lotto6');

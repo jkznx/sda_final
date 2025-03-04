@@ -13,11 +13,17 @@
     "lottonumber": {
       "type": "integer"
     },
-    "registers": {
+    "register": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::register.register",
-      "mappedBy": "lotto_4_s"
+      "inversedBy": "lotto_4s"
+    },
+    "lotto6num": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lotto6.lotto6",
+      "inversedBy": "lotto4num"
     }
   }
 }

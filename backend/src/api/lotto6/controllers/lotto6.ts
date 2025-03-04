@@ -5,16 +5,18 @@ const { createCoreController } = require('@strapi/strapi').factories;
 module.exports = createCoreController('api::lotto6.lotto6', ({ strapi }) => ({
   async findMostPushed(ctx) {
     try {
-      // ดึง query parameter 'limit' จาก URL (default = 5 ถ้าไม่ระบุ)
+      // ดึง query parameter 'limit' และ 'populate' จาก URL (default = 5 ถ้าไม่ระบุ)
       const limit = parseInt(ctx.query.limit) || 5;
+      const populateFields = ctx.query.populate || ['registers']; // ถ้ามี populate parameter ให้ใช้ ถ้าไม่มีให้ใช้ default 'registers'
 
       console.log('findMostPushed endpoint called with limit:', limit);
+      console.log('Populate fields:', populateFields);
 
       // ดึงข้อมูล lotto6 โดยเรียงตาม count จากมากไปน้อย
       const mostPushedLotto = await strapi.db.query('api::lotto6.lotto6').findMany({
         orderBy: { count: 'desc' }, // เรียงจากมากไปน้อย
         limit: limit, // จำนวนที่ต้องการ
-        populate: ['registers'], // ดึงข้อมูล registers ที่เกี่ยวข้อง (ถ้าไม่ต้องการให้ลบออก)
+        populate: populateFields, // ดึงข้อมูลตามที่ระบุใน query string (หรือ default)
       });
 
       console.log('Fetched data:', mostPushedLotto);
@@ -30,9 +32,4 @@ module.exports = createCoreController('api::lotto6.lotto6', ({ strapi }) => ({
       ctx.send({ error: 'Internal server error' }, 500);
     }
   },
-  async getPushData(ctx) {
-    // ฟังก์ชันสำหรับดึงข้อมูล push โดยใช้ factory หรือ API ภายนอก
-    const data = await strapi.services.lotto6.getPushData();  // ฟังก์ชันนี้สามารถเรียกใช้งาน API หรือฐานข้อมูล
-    return data;
-  }
 }));
