@@ -1,3 +1,5 @@
+import wait from "@/app/@lib/wait";
+
 export default async function Carts() {
   await wait(5000);
   return (
