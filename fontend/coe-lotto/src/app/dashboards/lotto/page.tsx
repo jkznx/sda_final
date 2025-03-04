@@ -56,10 +56,32 @@ const LottoPage = () => {
 
   return (
     <div>
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-0">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">Lotto Numbers</h2>
 
-        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          {lottoData.map((lotto: { id: number | string; lotto6number: string; lotto4number: string }) => (
+            <div key={lotto.id} className="group relative">
+              <div className="aspect-3/2 w-full rounded-md bg-purple-500 flex items-center justify-center flex-col">
+                <h1 className="text-md text-white">6 digit</h1>
+                <h3 className="text-2xl font-bold text-white">{lotto.lotto6number}</h3>
+                <h1 className="text-md text-white">4 digit</h1>
+                <p className="text-lg font-bold text-white">{lotto.lotto4number}</p>
+              </div>
+              <div className="mt-4 flex justify-between">
+                <p className="text-sm text-gray-700">ID: {lotto.id}</p>
+                <p className="text-sm font-medium text-gray-900">
+                  {lotto.lotto6number} / {lotto.lotto4number}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-0">
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Best Seller</h2>
+
+        <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {lottoData.map((lotto: { id: number | string; lotto6number: string; lotto4number: string }) => (
             <div key={lotto.id} className="group relative">
               <div className="aspect-3/2 w-full rounded-md bg-purple-500 flex items-center justify-center flex-col">
