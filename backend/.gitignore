@@ -113,9 +113,6 @@ exports
 dist
 build
 .strapi-updater.json
-<<<<<<< HEAD
-.strapi-cloud.json".env" 
-=======
 .strapi-cloud.json
 
 ############################
@@ -123,10 +120,9 @@ build
 ############################
 
 # Ignore .env file
-.env
+
 
 # Track .env.example
-!.env.example
 
 # Ignore sensitive keys
 *.key
@@ -135,4 +131,3 @@ build
 # Track non-sensitive config files
 !config/
 !config/app-config.json
->>>>>>> main

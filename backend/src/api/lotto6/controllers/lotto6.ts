@@ -30,4 +30,9 @@ module.exports = createCoreController('api::lotto6.lotto6', ({ strapi }) => ({
       ctx.send({ error: 'Internal server error' }, 500);
     }
   },
+  async getPushData(ctx) {
+    // ฟังก์ชันสำหรับดึงข้อมูล push โดยใช้ factory หรือ API ภายนอก
+    const data = await strapi.services.lotto6.getPushData();  // ฟังก์ชันนี้สามารถเรียกใช้งาน API หรือฐานข้อมูล
+    return data;
+  }
 }));

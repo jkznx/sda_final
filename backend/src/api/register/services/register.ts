@@ -1,3 +1,6 @@
+/**
+ * register service
+ */
 
 import { factories } from '@strapi/strapi';
 

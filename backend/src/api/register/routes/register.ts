@@ -1,2 +1,7 @@
-import { factories } from '@strapi/strapi'
+/**
+ * register router
+ */
+
+import { factories } from '@strapi/strapi';
+
 export default factories.createCoreRouter('api::register.register');
