@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/ACER/Desktop/Projects/sda_final/fontend/coe-lotto/src/app/dashboards/lotto/page.tsx"],"sourcesContent":["export default async function Page() {\r\n  const data = await fetch('https://api.vercel.app/blog')\r\n  const posts = await data.json()\r\n  return (\r\n    <ul>\r\n      {posts.map((post) => (\r\n        <li key={post.id}>{post.title}</li>\r\n      ))}\r\n    </ul>\r\n  )\r\n}"],"names":[],"mappings":";;;;;AAAe,eAAe;IAC5B,MAAM,OAAO,MAAM,MAAM;IACzB,MAAM,QAAQ,MAAM,KAAK,IAAI;IAC7B,qBACE,8OAAC;kBACE,MAAM,GAAG,CAAC,CAAC,qBACV,8OAAC;0BAAkB,KAAK,KAAK;eAApB,KAAK,EAAE;;;;;;;;;;AAIxB","debugId":null}},
-    {"offset": {"line": 29, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}

@@ -4,50 +4,19 @@
   "info": {
     "singularName": "lotto6",
     "pluralName": "lotto6s",
-    "displayName": "lotto6"
+    "displayName": "Lotto6"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "lottonumber": {
-<<<<<<< HEAD
-      "type": "biginteger"
-    },
-    "register": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::register.register",
-      "inversedBy": "lotto_6_s"
+      "type": "string"
     },
     "lotto4num": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::lotto4.lotto4",
-      "inversedBy": "lotto6num"
-=======
-      "type": "integer"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> main
-=======
-<<<<<<< HEAD
->>>>>>> 4a872a5d76a9f26cf3aaa36a3667795193db48a1
-=======
-    },
-    "registers": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::register.register",
-      "inversedBy": "lotto_6_s"
->>>>>>> 41cff450eacd7a98e9c73a838f14e30899fc7d8b
-    }
-    ,
-    "count": {
-      "type": "integer",
-      "default": 0
->>>>>>> main
+      "target": "api::lotto4.lotto4"
     }
   }
 }

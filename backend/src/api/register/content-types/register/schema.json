@@ -18,13 +18,7 @@
       "type": "string"
     },
     "gmail": {
-      "type": "email"
-    },
-    "lotto_4_s": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::lotto4.lotto4",
-      "inversedBy": "registers"
+      "type": "string"
     },
     "profile": {
       "type": "media",
@@ -42,13 +36,6 @@
     },
     "password": {
       "type": "password"
-    },
-    "lotto_6_s": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::lotto6.lotto6",
-      "mappedBy": "registers"
-    }
-    
+    } 
   }
 }
