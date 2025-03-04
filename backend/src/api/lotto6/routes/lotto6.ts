@@ -1,7 +1,13 @@
-/**
- * lotto6 router
- */
-
-import { factories } from '@strapi/strapi';
-
-export default factories.createCoreRouter('api::lotto6.lotto6');
+module.exports = {
+    routes: [
+      {
+        method: 'GET',
+        path: '/lotto6s/best-seller',
+        handler: 'lotto6.findMostPushed',
+        config: {
+          policies: [],
+          auth: false, // ข้าม auth ถ้าต้องการให้ public
+        },
+      },
+    ],
+  };

@@ -20,17 +20,11 @@
     "gmail": {
       "type": "email"
     },
-    "lotto_6_s": {
+    "lotto_4_s": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::lotto6.lotto6",
-      "mappedBy": "register"
-    },
-    "lotto_4s": {
-      "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::lotto4.lotto4",
-      "mappedBy": "register"
+      "inversedBy": "registers"
     },
     "profile": {
       "type": "media",
@@ -48,6 +42,13 @@
     },
     "password": {
       "type": "password"
+    },
+    "lotto_6_s": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::lotto6.lotto6",
+      "mappedBy": "registers"
     }
+    
   }
 }

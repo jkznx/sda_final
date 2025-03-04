@@ -391,7 +391,10 @@ export interface ApiLotto4Lotto4 extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     lottonumber: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
-    register: Schema.Attribute.Relation<'manyToOne', 'api::register.register'>;
+    registers: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::register.register'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -410,6 +413,7 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -421,7 +425,10 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     lottonumber: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
-    register: Schema.Attribute.Relation<'manyToOne', 'api::register.register'>;
+    registers: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::register.register'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -452,8 +459,8 @@ export interface ApiRegisterRegister extends Struct.CollectionTypeSchema {
       'api::register.register'
     > &
       Schema.Attribute.Private;
-    lotto_4s: Schema.Attribute.Relation<'oneToMany', 'api::lotto4.lotto4'>;
-    lotto_6_s: Schema.Attribute.Relation<'oneToMany', 'api::lotto6.lotto6'>;
+    lotto_4_s: Schema.Attribute.Relation<'manyToMany', 'api::lotto4.lotto4'>;
+    lotto_6_s: Schema.Attribute.Relation<'manyToMany', 'api::lotto6.lotto6'>;
     Name: Schema.Attribute.String;
     password: Schema.Attribute.Password;
     profile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
