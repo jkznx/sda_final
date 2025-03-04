@@ -27,6 +27,23 @@
       "inversedBy": "lotto6num"
 =======
       "type": "integer"
+<<<<<<< HEAD
+>>>>>>> main
+=======
+<<<<<<< HEAD
+=======
+    },
+    "registers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::register.register",
+      "inversedBy": "lotto_6_s"
+>>>>>>> 41cff450eacd7a98e9c73a838f14e30899fc7d8b
+    }
+    ,
+    "count": {
+      "type": "integer",
+      "default": 0
 >>>>>>> main
     }
   }
