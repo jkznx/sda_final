@@ -54,10 +54,7 @@ $RECYCLE.BIN/
 # Logs and databases
 ############################
 
-*.log
-logs/
-*.sql
-*.dump
+
 
 ############################
 # Misc.
@@ -119,11 +116,3 @@ build
 # Environment and sensitive data
 ############################
 
-
-# Ignore sensitive keys
-*.key
-*.pem
-
-# Track non-sensitive config files
-!config/
-!config/app-config.json
