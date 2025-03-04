@@ -369,8 +369,47 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 export interface ApiLotto4Lotto4 extends Struct.CollectionTypeSchema {
   collectionName: 'lotto4s';
+  info: {
+    displayName: 'Lotto4';
+    pluralName: 'lotto4s';
+    singularName: 'lotto4';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lotto4.lotto4'
+    > &
+      Schema.Attribute.Private;
+    lotto6num: Schema.Attribute.Relation<'oneToOne', 'api::lotto6.lotto6'>;
+    lottonumber: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    register: Schema.Attribute.Relation<'manyToOne', 'api::register.register'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+=======
+>>>>>>> main
+export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
+  collectionName: 'lotto6s';
+=======
+=======
+export interface ApiLotto4Lotto4 extends Struct.CollectionTypeSchema {
+  collectionName: 'lotto4s';
+>>>>>>> main
   info: {
     displayName: 'Lotto4';
     pluralName: 'lotto4s';
@@ -401,10 +440,10 @@ export interface ApiLotto4Lotto4 extends Struct.CollectionTypeSchema {
   };
 }
 
+>>>>>>> 41cff450eacd7a98e9c73a838f14e30899fc7d8b
 export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
   collectionName: 'lotto6s';
   info: {
-    description: '';
     displayName: 'lotto6';
     pluralName: 'lotto6s';
     singularName: 'lotto6';
@@ -423,8 +462,11 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
       'api::lotto6.lotto6'
     > &
       Schema.Attribute.Private;
-    lottonumber: Schema.Attribute.Integer;
+    lotto4num: Schema.Attribute.Relation<'oneToOne', 'api::lotto4.lotto4'>;
+    lottonumber: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
+<<<<<<< HEAD
+=======
     registers: Schema.Attribute.Relation<
       'manyToMany',
       'api::register.register'
@@ -465,6 +507,7 @@ export interface ApiRegisterRegister extends Struct.CollectionTypeSchema {
     password: Schema.Attribute.Password;
     profile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publishedAt: Schema.Attribute.DateTime;
+>>>>>>> 41cff450eacd7a98e9c73a838f14e30899fc7d8b
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -980,9 +1023,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::lotto4.lotto4': ApiLotto4Lotto4;
       'api::lotto6.lotto6': ApiLotto6Lotto6;
-      'api::register.register': ApiRegisterRegister;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
