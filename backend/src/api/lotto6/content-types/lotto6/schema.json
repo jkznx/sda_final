@@ -4,14 +4,14 @@
   "info": {
     "singularName": "lotto6",
     "pluralName": "lotto6s",
-    "displayName": "lotto6",
-    "description": ""
+    "displayName": "lotto6"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "lottonumber": {
+<<<<<<< HEAD
       "type": "biginteger"
     },
     "register": {
@@ -25,6 +25,9 @@
       "relation": "oneToOne",
       "target": "api::lotto4.lotto4",
       "inversedBy": "lotto6num"
+=======
+      "type": "integer"
+>>>>>>> main
     }
   }
 }

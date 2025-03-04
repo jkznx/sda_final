@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/ACER/Desktop/Projects/sda_final/fontend/coe-lotto/src/app/%40lib/wait.ts"],"sourcesContent":["export default function wait(ms: number) {\r\n    return new Promise((resolve) => setTimeout(resolve, ms));\r\n  }"],"names":[],"mappings":";;;AAAe,SAAS,KAAK,EAAU;IACnC,OAAO,IAAI,QAAQ,CAAC,UAAY,WAAW,SAAS;AACtD","debugId":null}},
+    {"offset": {"line": 13, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 19, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/ACER/Desktop/Projects/sda_final/fontend/coe-lotto/src/app/dashboards/page.tsx"],"sourcesContent":["import wait from \"../@lib/wait\";\r\n\r\nexport default async function DashboardPage() {\r\n  await wait(3000);\r\n  return (\r\n    <div>\r\n\r\n    </div>\r\n  ); \r\n}"],"names":[],"mappings":";;;;AAAA;;;AAEe,eAAe;IAC5B,MAAM,CAAA,GAAA,2HAAA,CAAA,UAAI,AAAD,EAAE;IACX,qBACE,8OAAC;;;;;AAIL","debugId":null}},
+    {"offset": {"line": 34, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
