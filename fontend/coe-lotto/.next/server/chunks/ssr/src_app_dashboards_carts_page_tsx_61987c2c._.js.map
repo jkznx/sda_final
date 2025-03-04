@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/ACER/Desktop/Projects/sda_final/fontend/coe-lotto/src/app/dashboards/carts/page.tsx"],"sourcesContent":["export default async function Carts() {\r\n  await wait(5000);\r\n  return (\r\n    <div>\r\n      <h1>Carts</h1>\r\n      <p>Carts will be listed here.</p>\r\n    </div>\r\n  ); \r\n}"],"names":[],"mappings":";;;;;AAAe,eAAe;IAC5B,MAAM,KAAK;IACX,qBACE,8OAAC;;0BACC,8OAAC;0BAAG;;;;;;0BACJ,8OAAC;0BAAE;;;;;;;;;;;;AAGT","debugId":null}},
+    {"offset": {"line": 37, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

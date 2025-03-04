@@ -370,9 +370,50 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 4a872a5d76a9f26cf3aaa36a3667795193db48a1
+export interface ApiLotto4Lotto4 extends Struct.CollectionTypeSchema {
+  collectionName: 'lotto4s';
+  info: {
+    displayName: 'Lotto4';
+    pluralName: 'lotto4s';
+    singularName: 'lotto4';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lotto4.lotto4'
+    > &
+      Schema.Attribute.Private;
+    lotto6num: Schema.Attribute.Relation<'oneToOne', 'api::lotto6.lotto6'>;
+    lottonumber: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    register: Schema.Attribute.Relation<'manyToOne', 'api::register.register'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+=======
+>>>>>>> main
+export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
+  collectionName: 'lotto6s';
+=======
 =======
 export interface ApiLotto4Lotto4 extends Struct.CollectionTypeSchema {
   collectionName: 'lotto4s';
+>>>>>>> main
   info: {
     displayName: 'Lotto4';
     pluralName: 'lotto4s';
@@ -425,7 +466,8 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
       'api::lotto6.lotto6'
     > &
       Schema.Attribute.Private;
-    lottonumber: Schema.Attribute.Integer;
+    lotto4num: Schema.Attribute.Relation<'oneToOne', 'api::lotto4.lotto4'>;
+    lottonumber: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
 <<<<<<< HEAD
 =======

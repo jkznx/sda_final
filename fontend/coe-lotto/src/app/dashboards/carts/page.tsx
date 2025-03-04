@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+import wait from "@/app/@lib/wait";
+
+export default async function Carts() {
+  await wait(5000);
+=======
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -29,6 +35,7 @@ const removeItemFromCart = (itemToRemove: { name: string; price: number }): void
 const totalCost = cartItems.reduce((total, item) => total + (item.price || 0), 0);
 
 
+>>>>>>> main
   return (
     <CartLayout>
       <h1 className="text-2xl font-bold">Carts</h1>

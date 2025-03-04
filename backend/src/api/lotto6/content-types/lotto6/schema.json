@@ -11,8 +11,29 @@
   },
   "attributes": {
     "lottonumber": {
+<<<<<<< HEAD
+      "type": "biginteger"
+    },
+    "register": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::register.register",
+      "inversedBy": "lotto_6_s"
+    },
+    "lotto4num": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lotto4.lotto4",
+      "inversedBy": "lotto6num"
+=======
       "type": "integer"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> main
+=======
+<<<<<<< HEAD
+>>>>>>> 4a872a5d76a9f26cf3aaa36a3667795193db48a1
 =======
     },
     "registers": {
@@ -26,6 +47,7 @@
     "count": {
       "type": "integer",
       "default": 0
+>>>>>>> main
     }
   }
 }

@@ -1,3 +1,5 @@
+import wait from "@/app/@lib/wait";
+
 export default async function Buys() {
   await wait(5000);
   return (
