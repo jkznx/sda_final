@@ -369,12 +369,14 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
-  collectionName: 'lotto6s';
+<<<<<<< HEAD
+=======
+export interface ApiLotto4Lotto4 extends Struct.CollectionTypeSchema {
+  collectionName: 'lotto4s';
   info: {
-    displayName: 'lotto6';
-    pluralName: 'lotto6s';
-    singularName: 'lotto6';
+    displayName: 'Lotto4';
+    pluralName: 'lotto4s';
+    singularName: 'lotto4';
   };
   options: {
     draftAndPublish: true;
@@ -386,11 +388,88 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
+      'api::lotto4.lotto4'
+    > &
+      Schema.Attribute.Private;
+    lottonumber: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    registers: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::register.register'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+>>>>>>> 41cff450eacd7a98e9c73a838f14e30899fc7d8b
+export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
+  collectionName: 'lotto6s';
+  info: {
+    displayName: 'lotto6';
+    pluralName: 'lotto6s';
+    singularName: 'lotto6';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
       'api::lotto6.lotto6'
     > &
       Schema.Attribute.Private;
     lottonumber: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+<<<<<<< HEAD
+=======
+    registers: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::register.register'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRegisterRegister extends Struct.CollectionTypeSchema {
+  collectionName: 'registers';
+  info: {
+    description: '';
+    displayName: 'Register';
+    pluralName: 'registers';
+    singularName: 'register';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.DateTime;
+    gmail: Schema.Attribute.Email;
+    Lastname: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::register.register'
+    > &
+      Schema.Attribute.Private;
+    lotto_4_s: Schema.Attribute.Relation<'manyToMany', 'api::lotto4.lotto4'>;
+    lotto_6_s: Schema.Attribute.Relation<'manyToMany', 'api::lotto6.lotto6'>;
+    Name: Schema.Attribute.String;
+    password: Schema.Attribute.Password;
+    profile: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+>>>>>>> 41cff450eacd7a98e9c73a838f14e30899fc7d8b
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

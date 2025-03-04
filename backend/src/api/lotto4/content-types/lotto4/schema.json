@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "lotto6s",
+  "collectionName": "lotto4s",
   "info": {
-    "singularName": "lotto6",
-    "pluralName": "lotto6s",
-    "displayName": "lotto6"
+    "singularName": "lotto4",
+    "pluralName": "lotto4s",
+    "displayName": "Lotto4"
   },
   "options": {
     "draftAndPublish": true
@@ -12,20 +12,12 @@
   "attributes": {
     "lottonumber": {
       "type": "integer"
-<<<<<<< HEAD
-=======
     },
     "registers": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::register.register",
-      "inversedBy": "lotto_6_s"
->>>>>>> 41cff450eacd7a98e9c73a838f14e30899fc7d8b
-    }
-    ,
-    "count": {
-      "type": "integer",
-      "default": 0
+      "mappedBy": "lotto_4_s"
     }
   }
 }
