@@ -29,6 +29,12 @@
     "count": {
       "type": "integer",
       "default": 0
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "lotto_6s"
     }
   }
 }

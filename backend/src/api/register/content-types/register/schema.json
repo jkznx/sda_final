@@ -48,6 +48,12 @@
     },
     "password": {
       "type": "password"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "register"
     }
   }
 }

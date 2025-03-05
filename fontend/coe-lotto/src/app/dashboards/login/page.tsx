@@ -1,7 +1,7 @@
-import LoginLayout from "./layout"
-
 export default function LoginPage() {
   return (
-    <LoginLayout />
-  )
+    <div>
+      <h1>Login Page</h1>
+    </div>
+  );
 }

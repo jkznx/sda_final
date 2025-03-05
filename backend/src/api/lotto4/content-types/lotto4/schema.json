@@ -23,7 +23,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::lotto6.lotto6",
-      "inversedBy": "lotto4num"
+      "mappedBy": "lotto4num"
     }
   }
 }
