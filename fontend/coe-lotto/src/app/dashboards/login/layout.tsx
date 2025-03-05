@@ -17,7 +17,7 @@ export default function Login() {
 
     if (storedUser && storedToken) {
       setUser(JSON.parse(storedUser));
-      router.replace("/dashboards"); // ✅ ถ้ามี token อยู่แล้วให้ redirect ไปหน้า Dashboard
+      router.replace("/dashboards");
     }
   }, [router]);
 
@@ -36,9 +36,7 @@ export default function Login() {
       sessionStorage.setItem("user", JSON.stringify(loggedInUser));
 
       setUser(loggedInUser);
-      router.replace("/dashboards"); // ✅ ใช้ replace() แทน push() เพื่อป้องกันย้อนกลับ
-
-      // บังคับให้รีเฟรชหน้า Dashboard ทันทีหลังจากที่ล็อกอิน
+      router.replace("/dashboards");
       window.location.reload();
     } catch (error: any) {
       setError(error.response?.data?.message || "An error occurred");
@@ -49,17 +47,17 @@ export default function Login() {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("user");
     setUser(null);
-    router.replace("/dashboards/login"); // ✅ เปลี่ยนเส้นทางไปหน้า login
+    router.replace("/dashboards/login");
   };
 
   const handleGoToRegister = () => {
-    router.push("/dashboards/register"); // ✅ กดแล้วไปหน้า Register
+    router.push("/dashboards/register");
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded shadow-md w-80">
-        <h2 className="text-xl text-gray-500 font-bold mb-4">{user ? "Sign Out" : "Login"}</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-80">
+        <h2 className="text-xl text-black font-bold mb-4">{user ? "Sign Out" : "Login"}</h2>
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
         {!user ? (
@@ -69,7 +67,7 @@ export default function Login() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border rounded mb-2"
+              className="w-full p-2 border border-gray-300 rounded mb-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
             <input
@@ -77,18 +75,22 @@ export default function Login() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border rounded mb-2"
+              className="w-full p-2 border border-gray-300 rounded mb-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
             <button type="submit" className="w-full bg-purple-500 text-white p-2 rounded mb-2">
               Login
             </button>
-            <button type="button" onClick={handleGoToRegister} className="w-full bg-green-500 text-white p-2 rounded">
+            <button
+              type="button"
+              onClick={handleGoToRegister}
+              className="w-full bg-green-500 text-white p-2 rounded"
+            >
               Register
             </button>
           </form>
         ) : (
-          <button onClick={handleSignOut} className="w-full bg-red-500 text-gray p-2 rounded">
+          <button onClick={handleSignOut} className="w-full bg-red-500 text-white p-2 rounded">
             Sign Out
           </button>
         )}

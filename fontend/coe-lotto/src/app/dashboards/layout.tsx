@@ -1,6 +1,6 @@
 // app/dashboards/layout.tsx
 "use client";
-
+import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";

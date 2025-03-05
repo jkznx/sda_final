@@ -34,9 +34,9 @@ export default function Register() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white blur-100 shadow-md rounded-md">
-      <div className="bg-white p-6 rounded shadow-md w-80">
-        <h2 className="text-xl font-bold mb-4">Register</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-80">
+        <h2 className="text-xl text-black font-bold mb-4">Register</h2>
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
         <form onSubmit={handleRegister}>
@@ -45,7 +45,7 @@ export default function Register() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-2 border rounded mb-2"
+            className="w-full p-2 border border-gray-300 rounded mb-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
             required
           />
           <input
@@ -53,7 +53,7 @@ export default function Register() {
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full p-2 border rounded mb-2"
+            className="w-full p-2 border border-gray-300 rounded mb-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
             required
           />
           <input
@@ -61,7 +61,7 @@ export default function Register() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-2 border rounded mb-2"
+            className="w-full p-2 border border-gray-300 rounded mb-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500"
             required
           />
           <button
@@ -74,7 +74,7 @@ export default function Register() {
         </form>
 
         <div className="mt-4 text-sm">
-          <p>
+          <p className="text-black p-2">
             Already have an account?{" "}
             <button
               onClick={() => router.push("/dashboards/login")}
