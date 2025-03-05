@@ -15,6 +15,9 @@ import LottoPage from './lotto/page'
 import { useState } from 'react'
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of b154fe399 (update top api)
+=======
 >>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
