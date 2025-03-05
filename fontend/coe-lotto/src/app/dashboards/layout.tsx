@@ -13,6 +13,9 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import LottoPage from './lotto/page'
 import { useState } from 'react'
+<<<<<<< HEAD
+>>>>>>> parent of b154fe399 (update top api)
+=======
 >>>>>>> parent of b154fe399 (update top api)
 
 const navigation = [
