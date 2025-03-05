@@ -3,6 +3,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import LottoPage from './lotto/page'
 import { useState } from 'react'
+import Link from 'next/link';
 
 const user = {
     name: 'Username',
