@@ -1,0 +1,118 @@
+############################
+# OS X
+############################
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+._*
+
+############################
+# Linux
+############################
+
+*~
+
+############################
+# Windows
+############################
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+############################
+# Packages
+############################
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+*.com
+*.exe
+*.seed
+*.swo
+*.swp
+*.swn
+*.swm
+*.out
+*.pid
+
+############################
+# Logs and databases
+############################
+
+
+
+############################
+# Misc.
+############################
+
+*#
+ssl
+.idea
+nbproject
+public/uploads/*
+!public/uploads/.gitkeep
+.tsbuildinfo
+.eslintcache
+
+############################
+# Node.js
+############################
+
+lib-cov
+lcov.info
+pids
+results
+node_modules
+.node_history
+
+############################
+# Package managers
+############################
+
+.yarn/*
+!.yarn/cache
+!.yarn/unplugged
+!.yarn/patches
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+yarn-error.log
+
+############################
+# Tests
+############################
+
+coverage
+
+############################
+# Strapi
+############################
+
+license.txt
+exports
+.strapi
+dist
+build
+.strapi-updater.json
+.strapi-cloud.json
+
+############################
+# Environment and sensitive data
+############################
+

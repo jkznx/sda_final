@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lotto6s",
+  "info": {
+    "singularName": "lotto6",
+    "pluralName": "lotto6s",
+    "displayName": "lotto6",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "lottonumber": {
+      "type": "biginteger"
+    },
+    "register": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::register.register",
+      "inversedBy": "lotto_6_s"
+    },
+    "lotto4num": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lotto4.lotto4",
+      "inversedBy": "lotto6num"
+    },
+    "count": {
+      "type": "integer",
+      "default": 0
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "lotto_6s"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "registers",
+  "info": {
+    "singularName": "register",
+    "pluralName": "registers",
+    "displayName": "Register",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Lastname": {
+      "type": "string"
+    },
+    "gmail": {
+      "type": "email"
+    },
+    "lotto_6_s": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lotto6.lotto6",
+      "mappedBy": "register"
+    },
+    "lotto_4s": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lotto4.lotto4",
+      "mappedBy": "register"
+    },
+    "profile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Date": {
+      "type": "datetime"
+    },
+    "password": {
+      "type": "password"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "register"
+    }
+  }
+}
