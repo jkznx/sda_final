@@ -59,7 +59,7 @@ export default function Login() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-6 rounded shadow-md w-80">
-        <h2 className="text-xl font-bold mb-4">{user ? "Sign Out" : "Login"}</h2>
+        <h2 className="text-xl text-gray-500 font-bold mb-4">{user ? "Sign Out" : "Login"}</h2>
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
         {!user ? (
@@ -80,10 +80,10 @@ export default function Login() {
               className="w-full p-2 border rounded mb-2"
               required
             />
-            <button type="submit" className="w-full bg-purple-500 text-gray p-2 rounded mb-2">
+            <button type="submit" className="w-full bg-purple-500 text-white p-2 rounded mb-2">
               Login
             </button>
-            <button type="button" onClick={handleGoToRegister} className="w-full bg-green-500 text-gray p-2 rounded">
+            <button type="button" onClick={handleGoToRegister} className="w-full bg-green-500 text-white p-2 rounded">
               Register
             </button>
           </form>

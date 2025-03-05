@@ -1,12 +1,14 @@
-// app/dashboards/layout.tsx
+
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import LottoPage from './lotto/page'; // Correct import
+import { usePathname } from "next/navigation";
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import LottoPage from './lotto/page'
+
 
 const navigation = [
   { name: "Dashboard", href: "/dashboards", current: true },
@@ -22,59 +24,47 @@ function classNames(...classes: string[]) {
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const [user, setUser] = useState<{ username?: string; email?: string; imageUrl?: string; role?: string } | null>(null);
+  const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(''); // Add searchTerm state
 
-  // Check sessionStorage for user data and admin status
+  // Check sessionStorage for user data every time the component loads
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     const userData = sessionStorage.getItem("user");
 
     if (token && userData) {
-      const parsedUser = JSON.parse(userData);
-      setUser(parsedUser);
-      setIsLoggedIn(true);
-      setIsAdmin(parsedUser.role === 'admin');
-      
-      if (parsedUser.role === 'admin' && pathname !== '/dashboards/adminboard') {
-        router.push('/dashboards/adminboard');
-      }
+      setUser(JSON.parse(userData));  // Set the user data from sessionStorage
+      setIsLoggedIn(true);            // Mark the user as logged in
     } else {
-      setIsLoggedIn(false);
-      setIsAdmin(false);
+      setIsLoggedIn(false);           // If no token or user data, set logged-in state to false
     }
 
+    // Add event listener for sessionStorage changes (to reflect changes in real-time)
     const handleStorageChange = () => {
       const updatedUser = sessionStorage.getItem("user");
       const updatedToken = sessionStorage.getItem("token");
 
       if (updatedToken && updatedUser) {
-        const parsedUser = JSON.parse(updatedUser);
-        setUser(parsedUser);
+        setUser(JSON.parse(updatedUser));
         setIsLoggedIn(true);
-        setIsAdmin(parsedUser.role === 'admin');
-        if (parsedUser.role === 'admin' && pathname !== '/dashboards/adminboard') {
-          router.push('/dashboards/adminboard');
-        }
       } else {
         setIsLoggedIn(false);
-        setIsAdmin(false);
       }
     };
 
     window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
-  }, [router, pathname]);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, [router]);  // Run only once when the component mounts
 
   const handleSignOut = () => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("user");
     setUser(null);
     setIsLoggedIn(false);
-    setIsAdmin(false);
-    router.push("/dashboards/login");
+    router.push("/dashboards/login");  // Redirect to login page after logout
   };
 
   const userNavigation = [
@@ -107,39 +97,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                       {item.name}
                     </Link>
                   ))}
-                  {isAdmin && (
-                    <Link
-                      href="/dashboards/adminboard"
-                      className={classNames(
-                        pathname === "/dashboards/adminboard" ? "bg-gray-900 text-white" : "text-gray-400 hover:bg-gray-700 hover:text-white",
-                        "rounded-md px-3 py-2 text-sm font-medium"
-                      )}
-                    >
-                      Admin Board
-                    </Link>
-                  )}
                 </div>
               </div>
             </div>
             <div className="hidden md:block">
-              <div className="ml-4 flex items-center md:ml-6 justify-between space-x-6">
-                {/* Search Box */}
-                <div className="flex items-center">
-                  <label htmlFor="search" className="sr-only">
-                    Search
-                  </label>
-                  <div className="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
-                    <input
-                      id="search"
-                      name="search"
-                      type="text"
-                      placeholder="Search by lotto number..."
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 w-48"
-                    />
-                  </div>
-                </div>
+              <div className="ml-4 flex items-center md:ml-6">
                 <button
                   type="button"
                   className="relative rounded-full bg-violet-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
@@ -148,6 +110,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                   <span className="sr-only">View notifications</span>
                   <BellIcon aria-hidden="true" className="size-6" />
                 </button>
+
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <MenuButton className="relative flex max-w-xs items-center rounded-full bg-violet-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none">
@@ -202,18 +165,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 </DisclosureButton>
               </Link>
             ))}
-            {isAdmin && (
-              <Link href="/dashboards/adminboard">
-                <DisclosureButton
-                  className={classNames(
-                    pathname === "/dashboards/adminboard" ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block rounded-md px-3 py-2 text-base font-medium"
-                  )}
-                >
-                  Admin Board
-                </DisclosureButton>
-              </Link>
-            )}
           </div>
           <div className="border-t border-gray-700 pt-4 pb-3">
             <div className="flex items-center px-5">
@@ -253,19 +204,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </Disclosure>
       <main>
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          {/* Render LottoPage for /dashboards route, otherwise render children */}
-          {pathname === '/dashboards' && !isAdmin ? (
-            <>
-              <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
-              <LottoPage searchTerm={searchTerm} />
-            </>
-          ) : (
-            React.Children.map(children, child =>
-              React.isValidElement(child)
-                ? React.cloneElement(child, { searchTerm } as any)
-                : child
-            )
-          )}
+          {children}
         </div>
       </main>
     </div>
