@@ -1,17 +1,14 @@
-// app/dashboards/layout.tsx
 "use client";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import LottoPage from './lotto/page'; // Correct import
 
 const navigation = [
   { name: "Dashboard", href: "/dashboards", current: true },
   { name: "Check", href: "/dashboards/check", current: false },
-  { name: "Buys", href: "/dashboards/buys", current: false },
   { name: "Carts", href: "/dashboards/carts", current: false },
 ];
 
@@ -79,12 +76,20 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   const userNavigation = [
     { name: user ? `${user.username}'s Profile` : "Your Profile", href: "#" },
-    { name: "Settings", href: "#" },
     { name: isLoggedIn ? "Sign out" : "Log in", href: isLoggedIn ? "#" : "/dashboards/login", onClick: isLoggedIn ? handleSignOut : undefined },
   ];
 
   return (
     <div>
+      {/* Marquee for Login and Signout reminders */}
+      {!isLoggedIn && (
+        <div className="bg-violet-500 text-white p-4 text-center text-xl font-semibold">
+          <marquee behavior="scroll" direction="left" scrollamount="5">
+            กรุณา login ก่อนใช้งาน และ sign out ทุกครั้งหลังใช้งานเสร็จ
+          </marquee>
+        </div>
+      )}
+      
       <Disclosure as="nav" className="bg-white-400 shadow">
         <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
@@ -256,7 +261,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {/* Render LottoPage for /dashboards route, otherwise render children */}
           {pathname === '/dashboards' && !isAdmin ? (
             <>
-              <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
+              <h1 className="text-2xl font-semibold text-gray-900">ยินดีต้อนรับสู่ กองฉลากPSU</h1>
               <LottoPage searchTerm={searchTerm} />
             </>
           ) : (

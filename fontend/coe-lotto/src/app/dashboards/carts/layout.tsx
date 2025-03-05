@@ -15,7 +15,17 @@ export default function Cart() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   useEffect(() => {
-    const storedCart = sessionStorage.getItem('cart');
+    const userData = sessionStorage.getItem("user");
+    if (!userData) {
+      alert("Please log in first.");
+      return;
+    }
+
+    const user = JSON.parse(userData);
+    const userId = user.id;
+    const cartKey = `cart_${userId}`;
+
+    const storedCart = sessionStorage.getItem(cartKey);
     if (storedCart) {
       setCartItems(JSON.parse(storedCart));
     }
@@ -24,20 +34,34 @@ export default function Cart() {
   const updateQuantity = (id: string, newQuantity: number) => {
     if (newQuantity < 1) return;
 
+    const userData = sessionStorage.getItem("user");
+    if (!userData) return;
+
+    const user = JSON.parse(userData);
+    const userId = user.id;
+    const cartKey = `cart_${userId}`;
+
     setCartItems((prevItems) => {
       const updatedCart = prevItems.map((item) =>
         item.id === id ? { ...item, count: newQuantity } : item
       );
 
-      sessionStorage.setItem('cart', JSON.stringify(updatedCart));
+      sessionStorage.setItem(cartKey, JSON.stringify(updatedCart));
       return updatedCart;
     });
   };
 
   const removeFromCart = (id: string) => {
+    const userData = sessionStorage.getItem("user");
+    if (!userData) return;
+
+    const user = JSON.parse(userData);
+    const userId = user.id;
+    const cartKey = `cart_${userId}`;
+
     setCartItems((prevItems) => {
       const updatedCart = prevItems.filter((item) => item.id !== id);
-      sessionStorage.setItem('cart', JSON.stringify(updatedCart));
+      sessionStorage.setItem(cartKey, JSON.stringify(updatedCart));
       return updatedCart;
     });
   };
@@ -90,9 +114,6 @@ export default function Cart() {
             <span className="text-lg font-medium text-gray-700">Total:</span>
             <span className="text-lg font-bold text-gray-700">${totalPrice.toFixed(2)}</span>
           </div>
-          <button className="mt-4 w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700">
-            Proceed to Checkout
-          </button>
         </div>
       </div>
     </div>
