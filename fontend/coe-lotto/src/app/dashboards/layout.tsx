@@ -1,23 +1,22 @@
+'use client';
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import LottoPage from './lotto/page'
+import { useState } from 'react'
 
 const user = {
-    name: 'User Name',
+    name: 'Username',
     email: 'username@example.com',
-    imageUrl:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    imageUrl: './anonymous.png',
 }
 const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
+    { name: 'Dashboard', href: '/', current: true },
     { name: 'Check', href: '/dashboards/check', current: false },
-    { name: 'Buys', href: '/dashboards/buys', current: false },
     { name: 'Carts', href: '/dashboards/carts', current: false },
 ]
 const userNavigation = [
     { name: 'Your Profile', href: '#' },
     { name: 'Settings', href: '#' },
-    { name: 'Sign out', href: '#' },
     { name: 'Log in', href: '/dashboards/login' },
 ]
 
@@ -26,16 +25,10 @@ function classNames(...classes) {
 }
 
 export default function DashboardLayout() {
+    const [searchTerm, setSearchTerm] = useState('')
+
     return (
         <>
-            {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
             <div>
                 <Disclosure as="nav" className="bg-white-400 shadow">
                     <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
@@ -70,19 +63,21 @@ export default function DashboardLayout() {
                                 <div className="ml-4 flex items-center md:ml-6 justify-between space-x-6">
                                     {/* Search Box */}
                                     <div className="flex items-center">
-                                    <label htmlFor="search" className="sr-only">
-                                        Search
-                                    </label>
-                                    <div className="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
-                                        <input
-                                            id="search"
-                                            name="search"
-                                            type="text"
-                                            placeholder="Search..."
-                                            className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 w-48" // Added w-48 for width
-                                        />
+                                        <label htmlFor="search" className="sr-only">
+                                            Search
+                                        </label>
+                                        <div className="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
+                                            <input
+                                                id="search"
+                                                name="search"
+                                                type="text"
+                                                placeholder="Search by lotto number..."
+                                                value={searchTerm}
+                                                onChange={(e) => setSearchTerm(e.target.value)}
+                                                className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 w-48"
+                                            />
+                                        </div>
                                     </div>
-                                </div>
                                     <button
                                         type="button"
                                         className="relative rounded-full bg-violet-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
@@ -185,7 +180,7 @@ export default function DashboardLayout() {
                     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                         <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
                         <div>
-                            <LottoPage />
+                            <LottoPage searchTerm={searchTerm} />
                         </div>
                     </div>
                 </main>

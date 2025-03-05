@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const LottoPage = () => {
+const LottoPage = ({ searchTerm = '' }) => {
   const [lottoData, setLottoData] = useState<any[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
@@ -13,21 +13,20 @@ const LottoPage = () => {
       try {
         const response = await axios.get('http://localhost:1337/api/lotto6s?populate[0]=lotto4num', {
           params: {
-            fields: 'id,lottonumber', // Fields from lotto6s
-            'populate[lotto4num][fields]': 'lottonumber', // Fields from lotto4num relation
+            fields: 'id,lottonumber',
+            'populate[lotto4num][fields]': 'lottonumber',
           },
         })
 
-        console.log('API Response:', response.data) // Log for debugging
+        console.log('API Response:', response.data)
 
-        // Format the data to include both lotto6 and lotto4 numbers
         const formattedData = response.data.data.map((lotto: any) => {
-          const lotto6Number = lotto.lottonumber || 'N/A' // Fallback for lotto6s
-          const lotto4Number = lotto.lotto4num?.lottonumber || 'N/A' // Fallback for lotto4num
+          const lotto6Number = lotto.lottonumber || 'N/A'
+          const lotto4Number = lotto.lotto4num?.lottonumber || 'N/A'
           return {
-            id: lotto.id || 'Unknown', // Fallback for id
-            lotto6number: String(lotto6Number).padStart(6, '0'), // Pad to 6 digits
-            lotto4number: String(lotto4Number).padStart(4, '0'), // Pad to 4 digits
+            id: lotto.id || 'Unknown',
+            lotto6number: String(lotto6Number).padStart(6, '0'),
+            lotto4number: String(lotto4Number).padStart(4, '0')
           }
         })
 
@@ -44,7 +43,13 @@ const LottoPage = () => {
     }
 
     fetchLottoData()
-  }, []) // Empty dependency array ensures it runs once on mount
+  }, [])
+
+  // Filter the data based on searchTerm
+  const filteredData = lottoData.filter((lotto) =>
+    lotto.lotto6number.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    lotto.lotto4number.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   if (loading) {
     return <div>Loading lotto data...</div>
@@ -60,7 +65,7 @@ const LottoPage = () => {
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">Lotto Numbers</h2>
 
         <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {lottoData.map((lotto: { id: number | string; lotto6number: string; lotto4number: string }) => (
+          {filteredData.map((lotto: { id: number | string; lotto6number: string; lotto4number: string }) => (
             <div key={lotto.id} className="group relative">
               <div className="aspect-3/2 w-full rounded-md bg-purple-500 flex items-center justify-center flex-col">
                 <h1 className="text-md text-white">6 digit</h1>
@@ -82,7 +87,7 @@ const LottoPage = () => {
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">Best Seller</h2>
 
         <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {lottoData.map((lotto: { id: number | string; lotto6number: string; lotto4number: string }) => (
+          {filteredData.map((lotto: { id: number | string; lotto6number: string; lotto4number: string }) => (
             <div key={lotto.id} className="group relative">
               <div className="aspect-3/2 w-full rounded-md bg-purple-500 flex items-center justify-center flex-col">
                 <h1 className="text-md text-white">6 digit</h1>

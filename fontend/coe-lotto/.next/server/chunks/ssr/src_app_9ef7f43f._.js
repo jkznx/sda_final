@@ -57,24 +57,19 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$dashboards$2f$
 ;
 ;
 const user = {
-    name: 'User Name',
+    name: 'Username',
     email: 'username@example.com',
-    imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+    imageUrl: './anonymous.png'
 };
 const navigation = [
     {
         name: 'Dashboard',
-        href: '#',
+        href: '/',
         current: true
     },
     {
         name: 'Check',
         href: '/dashboards/check',
-        current: false
-    },
-    {
-        name: 'Buys',
-        href: '/dashboards/buys',
         current: false
     },
     {
@@ -90,10 +85,6 @@ const userNavigation = [
     },
     {
         name: 'Settings',
-        href: '#'
-    },
-    {
-        name: 'Sign out',
         href: '#'
     },
     {
@@ -128,12 +119,12 @@ function DashboardLayout() {
                                                     className: "w-35 h-25"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 45,
+                                                    lineNumber: 43,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                lineNumber: 44,
+                                                lineNumber: 42,
                                                 columnNumber: 33
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -147,23 +138,23 @@ function DashboardLayout() {
                                                             children: item.name
                                                         }, item.name, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 54,
+                                                            lineNumber: 52,
                                                             columnNumber: 45
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 52,
+                                                    lineNumber: 50,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                lineNumber: 51,
+                                                lineNumber: 49,
                                                 columnNumber: 33
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/dashboards/layout.tsx",
-                                        lineNumber: 43,
+                                        lineNumber: 41,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -180,7 +171,7 @@ function DashboardLayout() {
                                                             children: "Search"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 73,
+                                                            lineNumber: 71,
                                                             columnNumber: 37
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -193,18 +184,18 @@ function DashboardLayout() {
                                                                 className: "block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 w-48" // Added w-48 for width
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                                lineNumber: 77,
+                                                                lineNumber: 75,
                                                                 columnNumber: 41
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 76,
+                                                            lineNumber: 74,
                                                             columnNumber: 37
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 72,
+                                                    lineNumber: 70,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -215,7 +206,7 @@ function DashboardLayout() {
                                                             className: "absolute -inset-1.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 90,
+                                                            lineNumber: 88,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -223,7 +214,7 @@ function DashboardLayout() {
                                                             children: "View notifications"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 91,
+                                                            lineNumber: 89,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$BellIcon$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__BellIcon$3e$__["BellIcon"], {
@@ -231,13 +222,13 @@ function DashboardLayout() {
                                                             className: "size-6"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 92,
+                                                            lineNumber: 90,
                                                             columnNumber: 41
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 86,
+                                                    lineNumber: 84,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$headlessui$2f$react$2f$dist$2f$headlessui$2e$esm$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$exports$3e$__["Menu"], {
@@ -252,7 +243,7 @@ function DashboardLayout() {
                                                                         className: "absolute -inset-1.5"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                                        lineNumber: 99,
+                                                                        lineNumber: 97,
                                                                         columnNumber: 49
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -260,7 +251,7 @@ function DashboardLayout() {
                                                                         children: "Open user menu"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                                        lineNumber: 100,
+                                                                        lineNumber: 98,
                                                                         columnNumber: 49
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -269,18 +260,18 @@ function DashboardLayout() {
                                                                         className: "size-8 rounded-full"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                                        lineNumber: 101,
+                                                                        lineNumber: 99,
                                                                         columnNumber: 49
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                                lineNumber: 98,
+                                                                lineNumber: 96,
                                                                 columnNumber: 45
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 97,
+                                                            lineNumber: 95,
                                                             columnNumber: 41
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$headlessui$2f$react$2f$dist$2f$headlessui$2e$esm$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$exports$3e$__["MenuItems"], {
@@ -293,34 +284,34 @@ function DashboardLayout() {
                                                                         children: item.name
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                                        lineNumber: 110,
+                                                                        lineNumber: 108,
                                                                         columnNumber: 53
                                                                     }, this)
                                                                 }, item.name, false, {
                                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                                    lineNumber: 109,
+                                                                    lineNumber: 107,
                                                                     columnNumber: 49
                                                                 }, this))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 104,
+                                                            lineNumber: 102,
                                                             columnNumber: 41
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 96,
+                                                    lineNumber: 94,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                            lineNumber: 70,
+                                            lineNumber: 68,
                                             columnNumber: 33
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/dashboards/layout.tsx",
-                                        lineNumber: 69,
+                                        lineNumber: 67,
                                         columnNumber: 29
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -332,7 +323,7 @@ function DashboardLayout() {
                                                     className: "absolute -inset-0.5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 125,
+                                                    lineNumber: 123,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -340,7 +331,7 @@ function DashboardLayout() {
                                                     children: "Open main menu"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 126,
+                                                    lineNumber: 124,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$Bars3Icon$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Bars3Icon$3e$__["Bars3Icon"], {
@@ -348,7 +339,7 @@ function DashboardLayout() {
                                                     className: "block size-6 group-data-open:hidden"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 127,
+                                                    lineNumber: 125,
                                                     columnNumber: 37
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$XMarkIcon$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__XMarkIcon$3e$__["XMarkIcon"], {
@@ -356,29 +347,29 @@ function DashboardLayout() {
                                                     className: "hidden size-6 group-data-open:block"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 128,
+                                                    lineNumber: 126,
                                                     columnNumber: 37
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                            lineNumber: 124,
+                                            lineNumber: 122,
                                             columnNumber: 33
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/dashboards/layout.tsx",
-                                        lineNumber: 122,
+                                        lineNumber: 120,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/dashboards/layout.tsx",
-                                lineNumber: 42,
+                                lineNumber: 40,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                            lineNumber: 41,
+                            lineNumber: 39,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$headlessui$2f$react$2f$dist$2f$headlessui$2e$esm$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$exports$3e$__["DisclosurePanel"], {
@@ -394,12 +385,12 @@ function DashboardLayout() {
                                             children: item.name
                                         }, item.name, false, {
                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                            lineNumber: 137,
+                                            lineNumber: 135,
                                             columnNumber: 33
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                    lineNumber: 135,
+                                    lineNumber: 133,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -416,12 +407,12 @@ function DashboardLayout() {
                                                         className: "size-10 rounded-full"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                        lineNumber: 154,
+                                                        lineNumber: 152,
                                                         columnNumber: 37
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 153,
+                                                    lineNumber: 151,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -432,7 +423,7 @@ function DashboardLayout() {
                                                             children: user.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 157,
+                                                            lineNumber: 155,
                                                             columnNumber: 37
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -440,13 +431,13 @@ function DashboardLayout() {
                                                             children: user.email
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 158,
+                                                            lineNumber: 156,
                                                             columnNumber: 37
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 156,
+                                                    lineNumber: 154,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -457,7 +448,7 @@ function DashboardLayout() {
                                                             className: "absolute -inset-1.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 164,
+                                                            lineNumber: 162,
                                                             columnNumber: 37
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -465,7 +456,7 @@ function DashboardLayout() {
                                                             children: "View notifications"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 165,
+                                                            lineNumber: 163,
                                                             columnNumber: 37
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$outline$2f$esm$2f$BellIcon$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__BellIcon$3e$__["BellIcon"], {
@@ -473,19 +464,19 @@ function DashboardLayout() {
                                                             className: "size-6"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                            lineNumber: 166,
+                                                            lineNumber: 164,
                                                             columnNumber: 37
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 160,
+                                                    lineNumber: 158,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                            lineNumber: 152,
+                                            lineNumber: 150,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -497,30 +488,30 @@ function DashboardLayout() {
                                                     children: item.name
                                                 }, item.name, false, {
                                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                                    lineNumber: 171,
+                                                    lineNumber: 169,
                                                     columnNumber: 37
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                                            lineNumber: 169,
+                                            lineNumber: 167,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                    lineNumber: 151,
+                                    lineNumber: 149,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/dashboards/layout.tsx",
-                            lineNumber: 134,
+                            lineNumber: 132,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                    lineNumber: 40,
+                    lineNumber: 38,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -532,35 +523,35 @@ function DashboardLayout() {
                                 children: "Dashboard"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/dashboards/layout.tsx",
-                                lineNumber: 186,
+                                lineNumber: 184,
                                 columnNumber: 25
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$dashboards$2f$lotto$2f$page$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                                    lineNumber: 188,
+                                    lineNumber: 186,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/dashboards/layout.tsx",
-                                lineNumber: 187,
+                                lineNumber: 185,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/dashboards/layout.tsx",
-                        lineNumber: 185,
+                        lineNumber: 183,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/dashboards/layout.tsx",
-                    lineNumber: 184,
+                    lineNumber: 182,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/dashboards/layout.tsx",
-            lineNumber: 39,
+            lineNumber: 37,
             columnNumber: 13
         }, this)
     }, void 0, false);
