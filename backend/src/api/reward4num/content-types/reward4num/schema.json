@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reward4nums",
+  "info": {
+    "singularName": "reward4num",
+    "pluralName": "reward4nums",
+    "displayName": "reward4num"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "reward4num": {
+      "type": "biginteger"
+    }
+  }
+}

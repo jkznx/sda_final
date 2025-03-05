@@ -435,6 +435,31 @@ export interface ApiLotto6Lotto6 extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPointPoint extends Struct.CollectionTypeSchema {
+  collectionName: 'points';
+  info: {
+    displayName: 'point';
+    pluralName: 'points';
+    singularName: 'point';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::point.point'> &
+      Schema.Attribute.Private;
+    point: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiRegisterRegister extends Struct.CollectionTypeSchema {
   collectionName: 'registers';
   info: {
@@ -472,6 +497,62 @@ export interface ApiRegisterRegister extends Struct.CollectionTypeSchema {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+  };
+}
+
+export interface ApiReward4NumReward4Num extends Struct.CollectionTypeSchema {
+  collectionName: 'reward4nums';
+  info: {
+    displayName: 'reward4num';
+    pluralName: 'reward4nums';
+    singularName: 'reward4num';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::reward4num.reward4num'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    reward4num: Schema.Attribute.BigInteger;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiReward6NumReward6Num extends Struct.CollectionTypeSchema {
+  collectionName: 'reward6nums';
+  info: {
+    displayName: 'reward6num';
+    pluralName: 'reward6nums';
+    singularName: 'reward6num';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::reward6num.reward6num'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    reward6num: Schema.Attribute.BigInteger;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -987,7 +1068,10 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::lotto4.lotto4': ApiLotto4Lotto4;
       'api::lotto6.lotto6': ApiLotto6Lotto6;
+      'api::point.point': ApiPointPoint;
       'api::register.register': ApiRegisterRegister;
+      'api::reward4num.reward4num': ApiReward4NumReward4Num;
+      'api::reward6num.reward6num': ApiReward6NumReward6Num;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

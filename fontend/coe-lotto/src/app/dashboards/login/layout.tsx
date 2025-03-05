@@ -80,15 +80,15 @@ export default function Login() {
               className="w-full p-2 border rounded mb-2"
               required
             />
-            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded mb-2">
+            <button type="submit" className="w-full bg-purple-500 text-gray p-2 rounded mb-2">
               Login
             </button>
-            <button type="button" onClick={handleGoToRegister} className="w-full bg-green-500 text-white p-2 rounded">
+            <button type="button" onClick={handleGoToRegister} className="w-full bg-green-500 text-gray p-2 rounded">
               Register
             </button>
           </form>
         ) : (
-          <button onClick={handleSignOut} className="w-full bg-red-500 text-white p-2 rounded">
+          <button onClick={handleSignOut} className="w-full bg-red-500 text-gray p-2 rounded">
             Sign Out
           </button>
         )}

@@ -1,45 +1,4 @@
 {
-  "/page": "app/page.js",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "/dashboards/page": "app/dashboards/page.js",
   "/dashboards/login/page": "app/dashboards/login/page.js",
-  "/dashboards/register/page": "app/dashboards/register/page.js",
-  "/dashboards/carts/page": "app/dashboards/carts/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/dashboards/buys/page": "app/dashboards/buys/page.js"
-=======
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/dashboards/check/page": "app/dashboards/check/page.js",
-  "/dashboards/login/page": "app/dashboards/login/page.js",
-  "/dashboards/carts/page": "app/dashboards/carts/page.js",
-  "/dashboards/page": "app/dashboards/page.js"
->>>>>>> parent of b154fe399 (update top api)
-=======
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/dashboards/check/page": "app/dashboards/check/page.js",
-  "/dashboards/login/page": "app/dashboards/login/page.js",
-  "/dashboards/carts/page": "app/dashboards/carts/page.js",
-  "/dashboards/page": "app/dashboards/page.js"
->>>>>>> parent of b154fe399 (update top api)
-=======
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/dashboards/check/page": "app/dashboards/check/page.js",
-  "/dashboards/login/page": "app/dashboards/login/page.js",
-  "/dashboards/carts/page": "app/dashboards/carts/page.js",
-  "/dashboards/page": "app/dashboards/page.js"
->>>>>>> parent of b154fe399 (update top api)
-=======
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/dashboards/check/page": "app/dashboards/check/page.js",
-  "/dashboards/login/page": "app/dashboards/login/page.js",
-  "/dashboards/carts/page": "app/dashboards/carts/page.js",
-  "/dashboards/page": "app/dashboards/page.js"
->>>>>>> parent of b154fe399 (update top api)
+  "/dashboards/register/page": "app/dashboards/register/page.js"
 }

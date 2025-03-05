@@ -1,11 +1,10 @@
-import wait from "../@lib/wait";
+import LottoPage from "./lotto/page"
 
-export default async function DashboardPage() {
-  await wait(3000);
+export default function DashboardPage() {
   return (
-    <div>
-        <h1>Dashboard</h1>
-        <p>Dashboard will be displayed here.</p>
-    </div>
-  ); 
+    <>
+      <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
+      <LottoPage searchTerm={searchTerm} />
+    </>
+  )
 }

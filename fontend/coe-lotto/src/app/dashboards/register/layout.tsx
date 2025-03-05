@@ -34,7 +34,7 @@ export default function Register() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white blur-100 shadow-md rounded-md">
       <div className="bg-white p-6 rounded shadow-md w-80">
         <h2 className="text-xl font-bold mb-4">Register</h2>
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
@@ -66,7 +66,7 @@ export default function Register() {
           />
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white p-2 rounded mb-2"
+            className="w-full bg-purple-500 text-white p-2 rounded mb-2"
             disabled={loading}
           >
             {loading ? "Registering..." : "Register"}

@@ -1,28 +1,14 @@
-<<<<<<< HEAD
+
 "use client";
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-=======
-'use client';
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import LottoPage from './lotto/page'
-import { useState } from 'react'
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of b154fe399 (update top api)
-=======
->>>>>>> parent of b154fe399 (update top api)
-=======
->>>>>>> parent of b154fe399 (update top api)
-=======
->>>>>>> parent of b154fe399 (update top api)
+
 
 const navigation = [
   { name: "Dashboard", href: "/dashboards", current: true },

@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "points",
+  "info": {
+    "singularName": "point",
+    "pluralName": "points",
+    "displayName": "point"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "point": {
+      "type": "integer"
+    }
+  }
+}
