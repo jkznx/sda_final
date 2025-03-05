@@ -52,6 +52,10 @@ export default function Login() {
     router.replace("/dashboards/login"); // ✅ เปลี่ยนเส้นทางไปหน้า login
   };
 
+  const handleGoToRegister = () => {
+    router.push("/dashboards/register"); // ✅ กดแล้วไปหน้า Register
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-6 rounded shadow-md w-80">
@@ -76,8 +80,11 @@ export default function Login() {
               className="w-full p-2 border rounded mb-2"
               required
             />
-            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
+            <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded mb-2">
               Login
+            </button>
+            <button type="button" onClick={handleGoToRegister} className="w-full bg-green-500 text-white p-2 rounded">
+              Register
             </button>
           </form>
         ) : (
