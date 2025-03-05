@@ -2,5 +2,8 @@
   "/page": "app/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/dashboards/check/page": "app/dashboards/check/page.js"
+  "/dashboards/check/page": "app/dashboards/check/page.js",
+  "/dashboards/login/page": "app/dashboards/login/page.js",
+  "/dashboards/carts/page": "app/dashboards/carts/page.js",
+  "/dashboards/page": "app/dashboards/page.js"
 }

@@ -1,11 +1,9 @@
-import wait from "../@lib/wait";
+import DashboardLayout from "./layout"
 
-export default async function DashboardPage() {
-  await wait(3000);
+export default function DashboardPage() {
   return (
     <div>
-        <h1>Dashboard</h1>
-        <p>Dashboard will be displayed here.</p>
+      <DashboardLayout />
     </div>
-  ); 
+  )
 }

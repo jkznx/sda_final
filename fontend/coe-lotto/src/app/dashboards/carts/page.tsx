@@ -1,60 +1,62 @@
-<<<<<<< HEAD
-import wait from "@/app/@lib/wait";
+// app/dashboards/carts/page.tsx
+'use client'
 
-export default async function Carts() {
-  await wait(5000);
-=======
-"use client";
-
-import React, { useState, useEffect } from 'react';
-
-
-import CartLayout from './layout';
+import React, { useState, useEffect } from 'react'
+import wait from "@/app/@lib/wait" // Assuming this is your utility function
 
 export default function Carts() {
-  const [cartItems, setCartItems] = useState<{ name: string; price: number }[]>([]);  
+  const [cartItems, setCartItems] = useState<{ name: string; price: number }[]>([])
+
   useEffect(() => {
-    // Example of adding an item to the cart
-    addItemToCart({ name: 'Lottery Ticket', price: 10 });
-  }, []);
+    const loadInitialData = async () => {
+      // Simulate loading delay
+      await wait(5000)
+      
+      // Add initial item after delay
+      addItemToCart({ name: 'Lottery Ticket', price: 10 })
+    }
 
+    loadInitialData()
+  }, []) // Empty dependency array means this runs once on mount
 
-  
-const addItemToCart = (item: { name: string; price: number }): void => {
+  const addItemToCart = (item: { name: string; price: number }): void => {
+    setCartItems([...cartItems, item])
+  }
 
+  const removeItemFromCart = (itemToRemove: { name: string; price: number }): void => {
+    setCartItems(cartItems.filter(item => item !== itemToRemove))
+  }
 
-    setCartItems([...cartItems, item]);
-  };
+  const totalCost = cartItems.reduce((total, item) => total + (item.price || 0), 0)
 
-const removeItemFromCart = (itemToRemove: { name: string; price: number }): void => {
-
-
-    setCartItems(cartItems.filter(item => item !== itemToRemove));
-  };
-
-const totalCost = cartItems.reduce((total, item) => total + (item.price || 0), 0);
-
-
->>>>>>> main
   return (
-    <CartLayout>
+    <>
       <h1 className="text-2xl font-bold">Carts</h1>
-
-      <ul className="list-disc pl-5">
-
-{cartItems.map((item: { name: string; price: number }, index: number) => (
-
-          <li key={index}>
-            {item.name} - ${item.price}
-            <button className="bg-red-500 text-white px-2 py-1 rounded" onClick={() => removeItemFromCart(item)}>Remove</button>
-
-          </li>
-        ))}
-      </ul>
-      <h2 className="text-xl font-semibold">Total: ${totalCost}</h2>
-
-      <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => alert('Proceeding to checkout')}>Checkout</button>
-
-    </CartLayout>
-  ); 
+      <div className="mt-6">
+        <ul className="list-disc pl-5">
+          {cartItems.map((item: { name: string; price: number }, index: number) => (
+            <li key={index} className="mb-2 flex items-center justify-between">
+              <span>{item.name} - ${item.price}</span>
+              <button 
+                className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+                onClick={() => removeItemFromCart(item)}
+              >
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
+        {cartItems.length === 0 && (
+          <p className="mt-4 text-gray-500">Your cart is empty</p>
+        )}
+        <h2 className="text-xl font-semibold mt-4">Total: ${totalCost}</h2>
+        <button 
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          onClick={() => alert('Proceeding to checkout')}
+        >
+          Checkout
+        </button>
+      </div>
+    </>
+  )
 }

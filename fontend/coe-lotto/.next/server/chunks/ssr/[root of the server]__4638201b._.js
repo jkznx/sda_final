@@ -127,7 +127,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 ;
 ;
 ;
-const LottoPage = ()=>{
+const LottoPage = ({ searchTerm = '' })=>{
     const [lottoData, setLottoData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -140,14 +140,10 @@ const LottoPage = ()=>{
                         'populate[lotto4num][fields]': 'lottonumber'
                     }
                 });
-                console.log('API Response:', response.data) // Log for debugging
-                ;
-                // Format the data to include both lotto6 and lotto4 numbers
+                console.log('API Response:', response.data);
                 const formattedData = response.data.data.map((lotto)=>{
-                    const lotto6Number = lotto.lottonumber || 'N/A' // Fallback for lotto6s
-                    ;
-                    const lotto4Number = lotto.lotto4num?.lottonumber || 'N/A' // Fallback for lotto4num
-                    ;
+                    const lotto6Number = lotto.lottonumber || 'N/A';
+                    const lotto4Number = lotto.lotto4num?.lottonumber || 'N/A';
                     return {
                         id: lotto.id || 'Unknown',
                         lotto6number: String(lotto6Number).padStart(6, '0'),
@@ -164,14 +160,15 @@ const LottoPage = ()=>{
             }
         };
         fetchLottoData();
-    }, []) // Empty dependency array ensures it runs once on mount
-    ;
+    }, []);
+    // Filter the data based on searchTerm
+    const filteredData = lottoData.filter((lotto)=>lotto.lotto6number.toLowerCase().includes(searchTerm.toLowerCase()) || lotto.lotto4number.toLowerCase().includes(searchTerm.toLowerCase()));
     if (loading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             children: "Loading lotto data..."
         }, void 0, false, {
             fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-            lineNumber: 50,
+            lineNumber: 55,
             columnNumber: 12
         }, this);
     }
@@ -180,7 +177,7 @@ const LottoPage = ()=>{
             children: error
         }, void 0, false, {
             fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-            lineNumber: 54,
+            lineNumber: 59,
             columnNumber: 12
         }, this);
     }
@@ -194,13 +191,13 @@ const LottoPage = ()=>{
                         children: "Lotto Numbers"
                     }, void 0, false, {
                         fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                        lineNumber: 60,
+                        lineNumber: 65,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8",
-                        children: lottoData.map((lotto)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "group relative",
+                        className: "mt-4 flex overflow-x-auto gap-6 py-4 scrollbar scrollbar-thumb-gray-300 scrollbar-track-gray-100",
+                        children: filteredData.map((lotto)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "group relative flex-none w-64",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "aspect-3/2 w-full rounded-md bg-purple-500 flex items-center justify-center flex-col",
@@ -210,7 +207,7 @@ const LottoPage = ()=>{
                                                 children: "6 digit"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 66,
+                                                lineNumber: 71,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -218,7 +215,7 @@ const LottoPage = ()=>{
                                                 children: lotto.lotto6number
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 67,
+                                                lineNumber: 72,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -226,7 +223,7 @@ const LottoPage = ()=>{
                                                 children: "4 digit"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 68,
+                                                lineNumber: 73,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -234,13 +231,13 @@ const LottoPage = ()=>{
                                                 children: lotto.lotto4number
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 69,
+                                                lineNumber: 74,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                        lineNumber: 65,
+                                        lineNumber: 70,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -254,7 +251,7 @@ const LottoPage = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 72,
+                                                lineNumber: 77,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -266,30 +263,30 @@ const LottoPage = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 73,
+                                                lineNumber: 78,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                        lineNumber: 71,
+                                        lineNumber: 76,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, lotto.id, true, {
                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                lineNumber: 64,
+                                lineNumber: 69,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                        lineNumber: 62,
+                        lineNumber: 67,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                lineNumber: 59,
+                lineNumber: 64,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -300,13 +297,13 @@ const LottoPage = ()=>{
                         children: "Best Seller"
                     }, void 0, false, {
                         fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                        lineNumber: 82,
+                        lineNumber: 87,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mt-4 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8",
-                        children: lottoData.map((lotto)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "group relative",
+                        className: "mt-4 flex overflow-x-auto gap-6 py-4 scrollbar scrollbar-thumb-gray-300 scrollbar-track-gray-100",
+                        children: filteredData.map((lotto)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "group relative flex-none w-64",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "aspect-3/2 w-full rounded-md bg-purple-500 flex items-center justify-center flex-col",
@@ -316,7 +313,7 @@ const LottoPage = ()=>{
                                                 children: "6 digit"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 88,
+                                                lineNumber: 93,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -324,7 +321,7 @@ const LottoPage = ()=>{
                                                 children: lotto.lotto6number
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 89,
+                                                lineNumber: 94,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -332,7 +329,7 @@ const LottoPage = ()=>{
                                                 children: "4 digit"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 90,
+                                                lineNumber: 95,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -340,13 +337,13 @@ const LottoPage = ()=>{
                                                 children: lotto.lotto4number
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 91,
+                                                lineNumber: 96,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                        lineNumber: 87,
+                                        lineNumber: 92,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -360,7 +357,7 @@ const LottoPage = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 94,
+                                                lineNumber: 99,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -372,36 +369,36 @@ const LottoPage = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                                lineNumber: 95,
+                                                lineNumber: 100,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                        lineNumber: 93,
+                                        lineNumber: 98,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, lotto.id, true, {
                                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                                lineNumber: 86,
+                                lineNumber: 91,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                        lineNumber: 84,
+                        lineNumber: 89,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-                lineNumber: 81,
+                lineNumber: 86,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/dashboards/lotto/page.tsx",
-        lineNumber: 58,
+        lineNumber: 63,
         columnNumber: 5
     }, this);
 };
