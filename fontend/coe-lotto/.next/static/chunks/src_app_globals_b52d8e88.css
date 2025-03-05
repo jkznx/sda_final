@@ -10,6 +10,10 @@
     --color-green-500: oklch(.723 .219 149.579);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    --color-green-600: oklch(.627 .194 149.214);
+>>>>>>> parent of b154fe399 (update top api)
 =======
     --color-green-600: oklch(.627 .194 149.214);
 >>>>>>> parent of b154fe399 (update top api)
@@ -449,6 +453,10 @@
     height: calc(var(--spacing) * 10);
   }
 
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+
   .h-16 {
     height: calc(var(--spacing) * 16);
   }
@@ -459,10 +467,13 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   .h-32 {
     height: calc(var(--spacing) * 32);
   }
 
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
 =======
@@ -473,6 +484,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   .w-8 {
     width: calc(var(--spacing) * 8);
   }
@@ -481,6 +493,8 @@
     width: calc(var(--spacing) * 12);
   }
 
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
 =======
@@ -553,6 +567,14 @@
     list-style-type: decimal;
   }
 
+  .list-inside {
+    list-style-position: inside;
+  }
+
+  .list-decimal {
+    list-style-type: decimal;
+  }
+
   .list-disc {
     list-style-type: disc;
   }
@@ -568,10 +590,13 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
 =======
@@ -616,8 +641,16 @@
     justify-items: center;
   }
 
+  .justify-items-center {
+    justify-items: center;
+  }
+
   .gap-2 {
     gap: calc(var(--spacing) * 2);
+  }
+
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
   }
 
   .gap-4 {
@@ -763,6 +796,15 @@
     border-color: color-mix(in oklab, var(--color-black) 8%, transparent);
   }
 
+  .border-solid {
+    --tw-border-style: solid;
+    border-style: solid;
+  }
+
+  .border-black\/\[\.08\] {
+    border-color: color-mix(in oklab, var(--color-black) 8%, transparent);
+  }
+
   .border-gray-300 {
     border-color: var(--color-gray-300);
 >>>>>>> parent of b154fe399 (update top api)
@@ -778,6 +820,14 @@
 
   .border-white {
     border-color: var(--color-white);
+  }
+
+  .bg-black\/\[\.05\] {
+    background-color: color-mix(in oklab, var(--color-black) 5%, transparent);
+  }
+
+  .border-transparent {
+    border-color: #0000;
   }
 
   .bg-black\/\[\.05\] {
@@ -832,7 +882,10 @@
     background-color: var(--color-green-500);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
   }
@@ -876,6 +929,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   .p-6 {
     padding: calc(var(--spacing) * 6);
 =======
@@ -884,6 +938,18 @@
 =======
   .p-8 {
     padding: calc(var(--spacing) * 8);
+=======
+  .p-8 {
+    padding: calc(var(--spacing) * 8);
+  }
+
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
+  }
+
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+>>>>>>> parent of b154fe399 (update top api)
   }
 
   .px-1 {
@@ -936,8 +1002,15 @@
     padding-block: calc(var(--spacing) * .5);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
+=======
+  }
+
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+>>>>>>> parent of b154fe399 (update top api)
   }
 
   .py-1 {
@@ -973,6 +1046,9 @@
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of b154fe399 (update top api)
+=======
 >>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
@@ -1138,9 +1214,12 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   .shadow-sm {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, #0000001a), 0 1px 2px -1px var(--tw-shadow-color, #0000001a);
 =======
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
   .shadow-xs {
@@ -1174,7 +1253,10 @@
     transition-duration: var(--tw-duration, var(--default-transition-duration));
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
   }
@@ -1248,6 +1330,24 @@
   }
 
   @media (hover: hover) {
+    .hover\:border-transparent:hover {
+      border-color: #0000;
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-\[\#383838\]:hover {
+      background-color: #383838;
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-\[\#f2f2f2\]:hover {
+      background-color: #f2f2f2;
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-blue-600:hover {
       background-color: var(--color-blue-600);
 >>>>>>> parent of b154fe399 (update top api)
@@ -1281,7 +1381,10 @@
   @media (hover: hover) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
     .hover\:bg-green-600:hover {
@@ -1464,9 +1567,45 @@
   }
 
   @media (width >= 40rem) {
+    .sm\:h-12 {
+      height: calc(var(--spacing) * 12);
+    }
+  }
+
+  @media (width >= 40rem) {
+    .sm\:min-w-44 {
+      min-width: calc(var(--spacing) * 44);
+    }
+  }
+
+  @media (width >= 40rem) {
+    .sm\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 40rem) {
     .sm\:grid-cols-6 {
       grid-template-columns: repeat(6, minmax(0, 1fr));
 >>>>>>> parent of b154fe399 (update top api)
+    }
+  }
+
+  @media (width >= 40rem) {
+    .sm\:flex-row {
+      flex-direction: row;
+    }
+  }
+
+  @media (width >= 40rem) {
+    .sm\:items-start {
+      align-items: flex-start;
+    }
+  }
+
+  @media (width >= 40rem) {
+    .sm\:p-20 {
+      padding: calc(var(--spacing) * 20);
     }
   }
 
@@ -1527,7 +1666,10 @@
   @media (width >= 40rem) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
     .sm\:py-0 {
@@ -1543,6 +1685,9 @@
 
   @media (width >= 40rem) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of b154fe399 (update top api)
+=======
 >>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
@@ -1557,7 +1702,10 @@
       line-height: var(--tw-leading, var(--text-base--line-height));
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
     }
@@ -1592,9 +1740,12 @@
   @media (width >= 64rem) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     .lg\:grid-cols-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
 =======
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
     .lg\:max-w-7xl {
@@ -1612,6 +1763,9 @@
     .lg\:px-0 {
       padding-inline: calc(var(--spacing) * 0);
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of b154fe399 (update top api)
+=======
 >>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
@@ -1626,10 +1780,13 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   @media (prefers-color-scheme: dark) {
     .dark\:border-white\/\[\.145\] {
       border-color: color-mix(in oklab, var(--color-white) 14.5%, transparent);
 =======
+=======
+>>>>>>> parent of b154fe399 (update top api)
 =======
 >>>>>>> parent of b154fe399 (update top api)
   @media (width >= 80rem) {
