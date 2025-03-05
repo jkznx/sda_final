@@ -1,70 +1,99 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from 'react';
+import { TrashIcon } from '@heroicons/react/24/outline';
+
+interface CartItem {
+  id: string;
+  lotto6number: string;
+  lotto4number: string;
+  price: number;
+  count: number;
+}
 
 export default function Cart() {
-  const [lotto6s, setLotto6s] = useState<any[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
-
-    if (!token) {
-      router.push("/dashboards/login"); // Redirect to login if no token is available
-    } else {
-      // Fetch user data from API
-      fetchUserData(token);
+    const storedCart = sessionStorage.getItem('cart');
+    if (storedCart) {
+      setCartItems(JSON.parse(storedCart));
     }
-  }, [router]);
+  }, []);
 
-  const fetchUserData = async (token: string) => {
-    try {
-      const response = await axios.get("http://localhost:1337/api/users/me?populate=*", {
-        headers: {
-          Authorization: `Bearer ${token}`, // Include JWT token in request header
-        },
-      });
+  const updateQuantity = (id: string, newQuantity: number) => {
+    if (newQuantity < 1) return;
 
-      const userData = response.data;
-      setLotto6s(userData.lotto_6s || []); // Assuming the lotto_6s data is available in user data
-    } catch (error: any) {
-      setError(error.response?.data?.message || "An error occurred while fetching the user data.");
-    }
+    setCartItems((prevItems) => {
+      const updatedCart = prevItems.map((item) =>
+        item.id === id ? { ...item, count: newQuantity } : item
+      );
+
+      sessionStorage.setItem('cart', JSON.stringify(updatedCart));
+      return updatedCart;
+    });
   };
+
+  const removeFromCart = (id: string) => {
+    setCartItems((prevItems) => {
+      const updatedCart = prevItems.filter((item) => item.id !== id);
+      sessionStorage.setItem('cart', JSON.stringify(updatedCart));
+      return updatedCart;
+    });
+  };
+
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.count, 0);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-3xl">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-3xl font-bold text-purple-600">COE Lotto</h2>
-          <div className="space-x-4">
-            <button className="bg-gray-200 text-sm px-4 py-2 rounded-lg">Check</button>
-            <button className="bg-gray-200 text-sm px-4 py-2 rounded-lg">Buys</button>
-            <button className="bg-purple-600 text-white text-sm px-4 py-2 rounded-lg">Carts</button>
-          </div>
-        </div>
+        <h2 className="text-3xl font-bold text-purple-600">My Cart</h2>
 
-        <h3 className="text-xl font-semibold text-gray-700 mb-6">My Carts</h3>
-        
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-
-        {lotto6s.length === 0 ? (
-          <p className="text-center text-gray-500">No Lotto 6s found.</p>
+        {cartItems.length === 0 ? (
+          <p className="text-gray-500 text-center mt-6">Your cart is empty</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {lotto6s.map((lotto: any) => (
-              <div key={lotto.id} className="bg-gray-100 p-4 rounded-lg shadow-sm">
-                <p className="font-medium text-lg text-gray-700">Lotto Number: {lotto.lottonumber}</p>
-                <p className="text-sm text-gray-600">Count: {lotto.count}</p>
-                <p className="text-xs text-gray-500">Created At: {new Date(lotto.createdAt).toLocaleString()}</p>
-                <p className="text-xs text-gray-500">Updated At: {new Date(lotto.updatedAt).toLocaleString()}</p>
+          <div className="mt-6 space-y-4">
+            {cartItems.map((item) => (
+              <div key={item.id} className="flex justify-between items-center bg-gray-100 p-4 rounded-lg">
+                <div>
+                  <p className="font-medium text-lg text-gray-700">Number: {item.lotto6number}</p>
+                  <p className="text-sm text-gray-600">Price: ${item.price.toFixed(2)}</p>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <button
+                    onClick={() => updateQuantity(item.id, item.count - 1)}
+                    className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                  >
+                    -
+                  </button>
+                  <span className="text-sm">{item.count}</span>
+                  <button
+                    onClick={() => updateQuantity(item.id, item.count + 1)}
+                    className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300"
+                  >
+                    +
+                  </button>
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className="text-red-600 hover:text-red-800"
+                  >
+                    <TrashIcon className="h-5 w-5" />
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         )}
+
+        <div className="mt-6 bg-gray-100 p-4 rounded-lg">
+          <div className="flex justify-between items-center">
+            <span className="text-lg font-medium text-gray-700">Total:</span>
+            <span className="text-lg font-bold text-gray-700">${totalPrice.toFixed(2)}</span>
+          </div>
+          <button className="mt-4 w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700">
+            Proceed to Checkout
+          </button>
+        </div>
       </div>
     </div>
   );
