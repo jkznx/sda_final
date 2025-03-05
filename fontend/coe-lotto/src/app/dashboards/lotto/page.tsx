@@ -34,16 +34,22 @@ const LottoPage = ({ searchTerm = '' }) => {
     fetchLottoData();
   }, []);
 
-  const filteredData = lottoData.filter(
-    (lotto) =>
-      lotto.lotto6number.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      lotto.lotto4number.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   const handleAddToCart = (lotto: { lotto6number: string; lotto4number: string }) => {
-    const existingCart = JSON.parse(sessionStorage.getItem('cart') || '[]');
+    const userData = sessionStorage.getItem("user");
+    if (!userData) {
+      alert("Please log in first.");
+      return;
+    }
 
-    const foundIndex = existingCart.findIndex((item: any) => item.lotto6number === lotto.lotto6number);
+    const user = JSON.parse(userData);
+    const userId = user.id;
+    const cartKey = `cart_${userId}`;
+
+    const existingCart = JSON.parse(sessionStorage.getItem(cartKey) || "[]");
+
+    const foundIndex = existingCart.findIndex(
+      (item: any) => item.lotto6number === lotto.lotto6number
+    );
 
     if (foundIndex !== -1) {
       existingCart[foundIndex].count += 1;
@@ -57,8 +63,7 @@ const LottoPage = ({ searchTerm = '' }) => {
       });
     }
 
-    sessionStorage.setItem('cart', JSON.stringify(existingCart));
-
+    sessionStorage.setItem(cartKey, JSON.stringify(existingCart));
     alert(`Added to cart: ${lotto.lotto6number} / ${lotto.lotto4number}`);
   };
 
@@ -69,7 +74,7 @@ const LottoPage = ({ searchTerm = '' }) => {
     <div>
       <h2 className="text-2xl font-bold text-gray-900">Lotto Numbers</h2>
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredData.map((lotto, index) => (
+        {lottoData.map((lotto, index) => (
           <div key={index} className="bg-purple-500 text-white p-4 rounded-lg shadow-lg text-center">
             <h3 className="text-lg font-bold">{lotto.lotto6number}</h3>
             <p className="text-sm">4-digit: {lotto.lotto4number}</p>
