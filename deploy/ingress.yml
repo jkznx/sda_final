@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-ingress
+  namespace: default
+  annotations:
+    cert-manager.io/issuer: letsencrypt-staging  # Use your Issuer here
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/websocket-services: "server-service"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - coe-lotto.coedesigns.com
+      secretName: test-ingress-tls
+  rules:
+    - host: "coe-lotto.coedesigns.com"
+      http:
+        paths:
+        
+          - path: "/(.*)"
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: client-service
+                port:
+                  number: 3000
+                  
+          - path: "/api/(.*)"
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: server-service
+                port:
+                  number: 3001
